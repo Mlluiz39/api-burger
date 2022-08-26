@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize(
-  'postgres://admin:Julia2912@@168.138.240.103:5432/node_burger'
+  'postgres://postgres-burger:Julia2912@@localhost:5432/postgres-burger'
 )
 
 sequelize

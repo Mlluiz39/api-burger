@@ -9,4 +9,30 @@ services:
     expose:
       - "3001"
     ports:
-      - "3001:3001"
+      - "3333:3333"
+
+    depends_on:
+          - postgres-burger
+        networks:
+          - app-connect
+
+    postgres-burger:
+        container_name: postgres-burger
+        image: postgres:11
+        restart: unless-stopped
+        volumes:
+          - postgres-burger-data:/data
+
+        environment: 
+          POSTGRES_DB: ${DB_NAME}
+          POSTGRES_USER: ${DB_USER}
+          POSTGRES_PASSWORD: ${DB_PASS} 
+        networks:
+          - app-connect
+
+    volumes:
+      postgres-burger-data:
+
+    networks:
+      app-connect:
+          driver: bridge
