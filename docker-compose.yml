@@ -1,38 +1,37 @@
-version: "3"
+
+version: '3'
+
 services:
-  node:
-    build: .
-    command: "npm run start"
-    working_dir: /home/node/app
-    environment:
-      - NODE_ENV=poduction
-    expose:
-      - "3001"
-    ports:
-      - "3333:3333"
 
-    depends_on:
-          - postgres-burger
-        networks:
-          - app-connect
-
-    postgres-burger:
-        container_name: postgres-burger
-        image: postgres:11
-        restart: unless-stopped
-        volumes:
-          - postgres-burger-data:/data
-
-        environment: 
-          POSTGRES_DB: ${DB_NAME}
-          POSTGRES_USER: ${DB_USER}
-          POSTGRES_PASSWORD: ${DB_PASS} 
-        networks:
-          - app-connect
-
+  nodejs-burger:
+    container_name: nodejs-burger
+    build: '.'
     volumes:
-      postgres-burger-data:
-
+      - .:/home/node/api
+      - /home/node/api/node_modules
+    depends_on:
+      - postgres-burger
     networks:
-      app-connect:
-          driver: bridge
+      - app-connect
+    ports:
+      - '3333:3333'
+
+  postgres-burger:
+    container_name: postgres-burger
+    image: postgres:11
+    restart: unless-stopped
+    volumes:
+      - postgres-burger-data:/data
+    environment: 
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS} 
+    networks:
+      - app-connect
+
+volumes:
+  postgres-burger-data:
+
+networks:
+  app-connect:
+      driver: bridge
