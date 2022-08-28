@@ -15,8 +15,8 @@ app.use('/', router)
 app.use(cors())
 
 router.get('/order', async (req, res) => {
-  const orders = await Order.findAll()
-  return res.json(orders)
+  const order = await Order.findAll()
+  return res.json(order)
 })
 
 router.get('/order/:id', async (req, res) => {
