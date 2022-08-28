@@ -12,17 +12,17 @@ services:
     ports:
       - '3333:3333'
 
-  postgres-burger:
-    image: postgres:9.6
-    container_name: "postgres"
-    environment:
-      - POSTGRES_HOST=localhost
-      - POSTGRES_DB=postgres-burger
-      - POSTGRES_USER=postgres-burger
-      - POSTGRES_PASSWORD=Julia2912@
-      - TZ=GMT
-    volumes:
-      - "./data/postgres:/var/lib/postgresql/data"
-    ports:
-      - 5432:5432
+  # postgres-burger:
+  #   image: postgres:9.6
+  #   container_name: "postgres"
+  #   environment:
+  #     - POSTGRES_HOST=localhost
+  #     - POSTGRES_DB=postgres-burger
+  #     - POSTGRES_USER=postgres-burger
+  #     - POSTGRES_PASSWORD=Julia2912@
+  #     - TZ=GMT
+  #   volumes:
+  #     - "./data/postgres:/var/lib/postgresql/data"
+  #   ports:
+  #     - 5432:5432
 
