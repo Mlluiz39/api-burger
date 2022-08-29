@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const serverless = require('serverless-http')
+const fs = require('fs')
+const https = require('https')
 
 const app = express()
 
@@ -57,8 +59,20 @@ router.delete('/order/:id', async (req, res) => {
   return res.json(order)
 })
 
-// app.listen(port, () => {
-//   console.log(`Listening at http://localhost:${port}`)
-// })
+app.listen(3000, () => {
+  console.log(`Listening at http://localhost:${3000}`)
+})
+
+https
+  .createServer(
+    {
+      cert: fs.readFileSync('.src/ssl/code.crt'),
+      key: fs.readFileSync('.src/ssl/code.key'),
+    },
+    app
+  )
+  .listen(9002, () => {
+    console.log('Listening at https://localhost:9002')
+  })
 
 module.exports.handler = serverless(app)
