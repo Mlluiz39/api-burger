@@ -14,14 +14,18 @@ const router = express.Router()
 
 app.use(express.json())
 app.use('/', router)
-app.use(
-  cors({
-    origin: ['https://node-burger.netlify.app/order/allow-cors'],
-    methods: ['GET', 'POST', 'DELETE'],
-    credentials: true,
-    origin: true,
-  })
-)
+app.use(cors())
+app.use((req, res, next) => {
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://node-burger.netlify.app/order/allow-cors'
+  )
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  next()
+})
 
 router.get('/order', async (req, res) => {
   const order = await Order.findAll()
