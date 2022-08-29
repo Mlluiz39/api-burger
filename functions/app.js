@@ -4,7 +4,7 @@ const serverless = require('serverless-http')
 
 const app = express()
 
-const Order = require('./functions/src/models/Order')
+const Order = require('./src/models/Order')
 
 const router = express.Router()
 
