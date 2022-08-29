@@ -15,7 +15,6 @@ router.get('/order', async (req, res) => {
   const order = await Order.findAll()
   return res.json(order)
 })
-app.use('/', router)  
 
 router.get('/order', async (req, res) => {
  const orders = await Order.findAll()

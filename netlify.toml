@@ -5,6 +5,4 @@
   to="/.netlify/functions/app/:splat"
   from="/*"
   status=200
-[headers.values]
-    Access-Control-Allow-Origin = "*"
   
