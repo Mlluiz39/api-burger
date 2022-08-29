@@ -3,12 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "engines": {
-    "node": "18.x"
-  },
-  
   "scripts": {
-    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
@@ -17,8 +12,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
-    "fs": "^0.0.1-security",
-    "https": "^1.0.0",
     "netlify-lambda": "^2.0.15",
     "pg": "^8.8.0",
     "sequelize": "^6.21.4",

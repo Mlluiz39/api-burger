@@ -1,12 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const serverless = require('serverless-http')
-const fs = require('fs')
-const https = require('https')
 
 const app = express()
-
-require('dotenv/config')
 
 const Order = require('./src/models/Order')
 
@@ -16,10 +12,7 @@ app.use(express.json())
 app.use('/', router)
 app.use(cors())
 app.use((req, res, next) => {
-  res.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://node-burger.netlify.app/order/allow-cors'
-  )
+  res.setHeader('Access-Control-Allow-Origin', '*')
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
@@ -62,21 +55,5 @@ router.delete('/order/:id', async (req, res) => {
   const order = await Order.destroy({ where: { id: req.params.id } })
   return res.json(order)
 })
-
-app.listen(3000, () => {
-  console.log(`Listening at http://localhost:${3000}`)
-})
-
-https
-  .createServer(
-    {
-      cert: fs.readFileSync('.src/ssl/code.crt'),
-      key: fs.readFileSync('.src/ssl/code.key'),
-    },
-    app
-  )
-  .listen(9002, () => {
-    console.log('Listening at https://localhost:9002')
-  })
 
 module.exports.handler = serverless(app)
