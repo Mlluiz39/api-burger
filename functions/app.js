@@ -16,7 +16,7 @@ app.use(express.json())
 app.use('/', router)
 app.use(
   cors({
-    origin: ['https://mlluizpereira.ml/'],
+    origin: ['https://node-burger.netlify.app/order'],
     methods: ['GET', 'POST', 'DELETE'],
     credentials: true,
     origin: true,
