@@ -45,4 +45,6 @@ router.delete('/order/:id', async (req, res) => {
     return res.json(order)
   })
 
+  app.use('/', router)
+
 module.exports.handler = serverless(app)
