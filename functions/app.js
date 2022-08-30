@@ -7,8 +7,13 @@ const app = express()
 const Order = require('./src/models/Order')
 
 const router = express.Router()
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200
+}
 
 app.use(express.json())
+app.use(cors(corsOptions))
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
