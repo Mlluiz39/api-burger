@@ -26,11 +26,6 @@ router.get('/order', async (req, res) => {
   return res.json(order)
 })
 
-router.get('/order', async (req, res) => {
-  const orders = await Order.findAll()
-  return res.json(orders)
-})
-
 router.get('/order/:id', async (req, res) => {
   const order = await Order.findByPk(req.params.id)
   return res.json(order)
