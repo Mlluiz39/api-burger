@@ -3,6 +3,7 @@ const { Sequelize } = require('sequelize')
 const sequelize = new Sequelize('node-burger-api', 'postgres', 'Julia2912@', {
   host: '140.238.183.195',
   dialect: 'postgres',
+  dialectModule: 'pg',
 })
 
 sequelize
