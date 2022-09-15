@@ -1,5 +1,5 @@
 {
-  "name": "hamburgueria",
+  "name": "hamburger",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -16,7 +16,6 @@
     "netlify-lambda": "^2.0.15",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.21.4",
     "serverless-http": "^3.0.2"
   },
   "devDependencies": {
