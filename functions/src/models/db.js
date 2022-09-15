@@ -1,8 +1,9 @@
 const { Sequelize } = require('sequelize')
 
-const sequelize = new Sequelize(
-  'postgres://woxmhyfp:XckR6ybQzIz6DtNZqX_dGzCpUlVaF8XB@tuffi.db.elephantsql.com/woxmhyfp'
-)
+const sequelize = new Sequelize('devburger', 'postgres', 'Julia2912@', {
+  host: '144.22.237.192',
+  dialect: 'postgres',
+})
 
 sequelize
   .authenticate()
