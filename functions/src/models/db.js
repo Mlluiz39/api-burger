@@ -1,4 +1,3 @@
-import * as pg from 'pg'
 const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize('devburger', 'postgres', 'Julia2912@', {
