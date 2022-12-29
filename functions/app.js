@@ -9,8 +9,8 @@ const Order = require('./src/models/Order')
 
 const router = express.Router()
 
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 
 router.get('/order', async (req, res) => {
   const order = await Order.findAll()
