@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize')
 
-const sequelize = new Sequelize('mini-dev-burger', 'postgres', 'Julia2912@', {
-  host: '132.226.242.241',
+const sequelize = new Sequelize('codeburger-postgres', 'postgres', 'Julia2912@', {
+  host: '144.22.225.20',
   dialect: 'postgres',
   dialectModule: require('pg'),
 })
